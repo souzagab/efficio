@@ -33,6 +33,9 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # Throw exceptions on deprecations
+  config.active_support.deprecation = :raise
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
