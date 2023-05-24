@@ -9,6 +9,7 @@ AllCops:
   Exclude:
     - bin/*
     - vendor/**/*
+    - db/schema.rb
   # Default formatter will be used if no `-f/--format` option is given.
   DefaultFormatter: progress
   # Cop names are displayed in offense messages by default. Change behavior
