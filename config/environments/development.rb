@@ -33,6 +33,8 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+
   # Throw exceptions on deprecations
   config.active_support.deprecation = :raise
 
