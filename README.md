@@ -1,5 +1,5 @@
-# Rails 7 App
+# Efficio
 
-> :warning: **This is a work in progress.** :warning:
+:maintenance: :maintenance: :maintenance:
 
-Rails 7 + esbuild + TailwindCSS + Hotwire + Stimulus
+> Under development
