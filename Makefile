@@ -19,6 +19,9 @@ build: stop # Build the containers
 bash: # Open a bash session in the app container
 	docker compose -f $(DEVELOPMENT_PATH) run --rm app bash
 
+rspec: # Open a bash session in the app container
+	docker compose -f $(DEVELOPMENT_PATH) run --rm app bin/rspec
+
 server: stop # Start the server
 	docker compose -f $(DEVELOPMENT_PATH) up
 
