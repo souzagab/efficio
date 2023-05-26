@@ -5,18 +5,18 @@ volumes:
   pg-data:
 
 networks:
-  rails-app:
+  efficio:
 
 x-app: &app
-  image: "rails-app:dev"
+  image: "efficio:dev"
   build:
     context: ../../. # Project root
     dockerfile: .docker/dev/Dockerfile
     target: app
   tty: true
   volumes:
-    - bundler:/rails-app/vendor
-    - ../../.:/rails-app
+    - bundler:/efficio/vendor
+    - ../../.:/efficio
   environment:
     - DATABASE_URL=postgres://postgres:secret@postgres:5432
     - REDIS_URL=redis://redis:6379
@@ -26,20 +26,20 @@ x-app: &app
     - postgres
     - redis
   networks:
-    - rails-app
+    - efficio
 
 x-assets: &assets
-  image: "rails-app:dev"
+  image: "efficio:dev"
   build:
     context: ../../. # Project root
     dockerfile: .docker/dev/Dockerfile
     target: assets
   tty: true
   volumes:
-    - bundler:/rails-app/vendor
-    - ../../.:/rails-app
+    - bundler:/efficio/vendor
+    - ../../.:/efficio
   networks:
-    - rails-app
+    - efficio
 
 services:
   app:
@@ -83,7 +83,7 @@ services:
     volumes:
       - pg-data:/var/lib/postgresql/data
     networks:
-      - rails-app
+      - efficio
 
   redis:
     image: redis:7-alpine
@@ -91,4 +91,4 @@ services:
     ports:
       - 6379
     networks:
-      - rails-app
+      - efficio
