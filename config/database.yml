@@ -3,16 +3,16 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  url: <%= ENV.fetch("DATABASE_URL") %>
+  url: <%= ENV["DATABASE_URL"] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: rails_app_development
+  database: efficio_development
 
 test:
   <<: *default
-  database: rails_app_test
+  database: efficio_test
 
 production:
   <<: *default
