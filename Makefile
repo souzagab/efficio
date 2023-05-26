@@ -19,10 +19,10 @@ build: stop # Build the containers
 bash: # Open a bash session in the app container
 	docker compose -f $(DEVELOPMENT_PATH) run --rm app bash
 
-attach: # Open a bash session in the app container
+attach: # Attach to a running container and opens bash
 	docker compose -f $(DEVELOPMENT_PATH) exec app bash
 
-rspec: # Open a bash session in the app container
+rspec: # Run tests
 	docker compose -f $(DEVELOPMENT_PATH) run --rm app bin/rspec
 
 server: stop # Start the server
@@ -37,6 +37,8 @@ build-release: # Build the production image
 		--file "${PRODUCTION_PATH}/Dockerfile" \
 		.
 
+prod-up: stop # Start the server in production mode (only for testing)
+	docker compose -f $(PRODUCTION_PATH)/docker-compose.yml up
+
 # TODO: Push the image to a registry
 release: build-release # Build and push the production image
-
