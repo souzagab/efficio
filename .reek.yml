@@ -49,3 +49,4 @@ exclude_paths:
   - bin
   - vendor/bundle
   - spec
+  - db
