@@ -29,16 +29,22 @@ server: stop # Start the server
 	docker compose -f $(DEVELOPMENT_PATH) up
 
 ## Production
-IMAGE_NAME ?= "efficio:latest"
+IMAGE_TAG ?= "efficio:latest"
 
 build-release: # Build the production image
 	docker build \
-		--tag $(IMAGE_NAME) \
+		--tag $(IMAGE_TAG) \
 		--file "${PRODUCTION_PATH}/Dockerfile" \
 		.
 
-prod-up: stop # Start the server in production mode (only for testing)
+prod-stop: # Stop all containers
+	docker compose -f $(PRODUCTION_PATH)/docker-compose.yml down
+
+prod-up: prod-stop # Start the server in production mode (only for testing)
 	docker compose -f $(PRODUCTION_PATH)/docker-compose.yml up
+
+prod-attach: # Attach to a running container and opens bash
+	docker compose -f $(PRODUCTION_PATH)/docker-compose.yml exec app sh
 
 # TODO: Push the image to a registry
 release: build-release # Build and push the production image
