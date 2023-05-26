@@ -70,3 +70,9 @@ jobs:
           github_token: ${{ env.GITHUB_TOKEN }}
           reek_version: gemfile
           reporter: github-pr-check
+      - name: Brakeman
+        uses: reviewdog/action-brakeman@v2
+        with:
+          github_token: ${{ env.GITHUB_TOKEN }}
+          brakeman_version: gemfile
+          reporter: github-pr-check
