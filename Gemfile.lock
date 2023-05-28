@@ -94,6 +94,12 @@ GEM
     cssbundling-rails (1.1.2)
       railties (>= 6.0.0)
     date (3.3.3)
+    ddtrace (1.11.1)
+      debase-ruby_core_source (>= 0.10.16, <= 3.2.0)
+      libdatadog (~> 2.0.0.1.0)
+      libddwaf (~> 1.8.2.0.0)
+      msgpack
+    debase-ruby_core_source (3.2.0)
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
@@ -113,6 +119,7 @@ GEM
       railties (>= 5.0.0)
     faker (3.2.0)
       i18n (>= 1.8.11, < 2)
+    ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.13.0)
@@ -129,6 +136,9 @@ GEM
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     kwalify (0.7.2)
+    libdatadog (2.0.0.1.0-x86_64-linux)
+    libddwaf (1.8.2.0.0-x86_64-linux)
+      ffi (~> 1.0)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -331,6 +341,7 @@ DEPENDENCIES
   bullet (~> 7.0)
   capybara (~> 3.3)
   cssbundling-rails
+  ddtrace
   debug
   devise (~> 4.9)
   factory_bot_rails (~> 6.2)
