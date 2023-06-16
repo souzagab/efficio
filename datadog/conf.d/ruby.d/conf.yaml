@@ -9,7 +9,7 @@ logs:
     #   tags: (optional) add tags to each log collected
 
   - type: file
-    path: /efficio/log/*.log
+    path: log/*.log
     service: efficio
     source: ruby
     sourcecategory: sourcecode

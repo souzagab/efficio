@@ -1,14 +1,26 @@
 version: 2
+
 updates:
   - package-ecosystem: bundler
     directory: /
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
-    versioning-strategy: lockfile-only
+    open-pull-requests-limit: 3
+    versioning-strategy: increase-if-necessary
     allow:
       - dependency-type: direct
       - dependency-type: indirect
+    labels:
+      - dependencies
+    reviewers:
+      - souzagab
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+    versioning-strategy: increase-if-necessary
     labels:
       - dependencies
     reviewers:
